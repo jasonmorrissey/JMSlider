@@ -1,0 +1,121 @@
+//  Created by Jason Morrissey - jasonmorrissey.org
+
+#import "JMCenterView.h"
+#import "JMSlider.h"
+
+@interface JMCenterView()
+@property (assign) CGPoint touchStartPoint;
+- (CGPoint)touchPoint:(NSSet *)touches;
+- (void)drawButtonInRect:(CGRect)rect;
+- (CGSize)sizeOfButton;
+@end
+
+@implementation JMCenterView
+
+@synthesize touchStartPoint = touchStartPoint_;
+
+- (void)dealloc;
+{
+    [super dealloc];
+}
+
+#pragma Mark -
+#pragma Mark - Wrappers for button (including padding)
+
+- (void)drawRect:(CGRect)rect;
+{
+    CGRect buttonRect = CGRectInset(rect, kJMSliderButtonInvisiblePadding.width, kJMSliderButtonInvisiblePadding.height);
+    [self drawButtonInRect:buttonRect];
+}
+
+- (CGSize)sizeThatFits:(CGSize)size;
+{
+    CGSize buttonSize = [self sizeOfButton];
+    return CGSizeMake(buttonSize.width + kJMSliderButtonInvisiblePadding.width * 2., buttonSize.height + kJMSliderButtonInvisiblePadding.height * 2.);
+}
+
+#pragma Mark -
+#pragma Mark - Button Drawing
+
+- (void)drawButtonInRect:(CGRect)rect;
+{
+    [kJMButtonColor set];
+    UIBezierPath * background = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:20];
+    [background fill];
+    
+    if (self.highlighted)
+    {
+        [kJMButtonOutlineColor set];
+        UIBezierPath * outline = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, -3., -3.) cornerRadius:20];
+        [outline stroke];
+    }
+    
+    CGFloat textOpacity = 1. - fabs([self.slider slideRatio]);
+    [[UIColor colorWithWhite:1. alpha:textOpacity] set];
+    [self.title drawInRect:CGRectOffset(rect, 0, kJMButtonPadding.height -1.) withFont:kJMButtonFont lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
+}
+
+- (CGSize)sizeOfButton;
+{
+    CGSize titleSize = [self.title sizeWithFont:kJMButtonFont];
+    return CGSizeMake(titleSize.width + 2 * kJMButtonPadding.width, titleSize.height + 2 * kJMButtonPadding.height);
+}
+
+#pragma Mark - 
+#pragma Mark - Convenience Methods
+
+- (CGPoint)touchPoint:(NSSet *)touches;
+{
+	UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.superview];
+    return touchPoint;
+}
+
+#pragma Mark - 
+#pragma Mark - Touch Response
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    [super touchesBegan:touches withEvent:event];
+    [self.slider setHighlightSlider:YES];
+    [self.slider updateWithSlideRatio:0.];
+    touchStartPoint_ = [[touches anyObject] locationInView:self];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event 
+{
+    [super touchesMoved:touches withEvent:event];
+    CGPoint touchPoint = [self touchPoint:touches];
+    CGPoint centerPoint = CGPointMake(touchPoint.x - touchStartPoint_.x + (self.bounds.size.width / 2), self.center.y);
+    [self.slider setButtonCenterPosition:centerPoint animated:NO];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+    [self.slider releaseDragShouldCancel:YES];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    [super touchesEnded:touches withEvent:event];
+    [self.slider releaseDragShouldCancel:NO];
+}
+         
+#pragma Mark - 
+#pragma Mark - Factories
+
++ (JMCenterView *)sliderButtonForSlider:(JMSlider *)slider withTitle:(NSString *)title;
+{
+    JMCenterView * button = [[[JMCenterView alloc] initWithFrame:CGRectZero forSlider:slider] autorelease];
+    [button setTitle:title];
+    [button sizeToFit];
+    
+    UITapGestureRecognizer * tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)] autorelease];
+    tapGesture.numberOfTapsRequired = 1;
+    [button addGestureRecognizer:tapGesture];
+    
+    return button;
+}
+
+@end
