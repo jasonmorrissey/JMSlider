@@ -1,7 +1,7 @@
 //  Created by Jason Morrissey - jasonmorrissey.org
 
 #import "DemoAppDelegate.h"
-#import "DemoViewController.h"
+#import "DemoTableViewController.h"
 
 @implementation DemoAppDelegate
 
@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-	DemoViewController * demoViewController = [[[DemoViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+	DemoTableViewController * demoViewController = [[[DemoTableViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:demoViewController] autorelease];
     [self.navigationController setNavigationBarHidden:YES];
     

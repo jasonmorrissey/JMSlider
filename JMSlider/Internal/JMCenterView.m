@@ -108,6 +108,8 @@
 + (JMCenterView *)sliderButtonForSlider:(JMSlider *)slider withTitle:(NSString *)title;
 {
     JMCenterView * button = [[[JMCenterView alloc] initWithFrame:CGRectZero forSlider:slider] autorelease];
+    
+    [button setExclusiveTouch:YES];
     [button setTitle:title];
     [button sizeToFit];
     

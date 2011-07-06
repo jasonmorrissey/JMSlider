@@ -23,6 +23,7 @@
 		47F343E113A4AF6F00EC49ED /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F343DE13A4AF6F00EC49ED /* DemoViewController.m */; };
 		886B464D13C2945500191AD9 /* JMSliderTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B464C13C2945500191AD9 /* JMSliderTrack.m */; };
 		886B465413C29D0100191AD9 /* JMSliderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B465313C29D0100191AD9 /* JMSliderComponent.m */; };
+		88ADC72413C40BD800C8263E /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ADC72313C40BD800C8263E /* DemoTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		886B464F13C2956F00191AD9 /* JMSliderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSliderConstants.h; sourceTree = "<group>"; };
 		886B465213C29D0000191AD9 /* JMSliderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSliderComponent.h; sourceTree = "<group>"; };
 		886B465313C29D0100191AD9 /* JMSliderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSliderComponent.m; sourceTree = "<group>"; };
+		88ADC72213C40BD800C8263E /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
+		88ADC72313C40BD800C8263E /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				47F343DC13A4AF6F00EC49ED /* DemoAppDelegate.m */,
 				47F343DD13A4AF6F00EC49ED /* DemoViewController.h */,
 				47F343DE13A4AF6F00EC49ED /* DemoViewController.m */,
+				88ADC72213C40BD800C8263E /* DemoTableViewController.h */,
+				88ADC72313C40BD800C8263E /* DemoTableViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				886B464D13C2945500191AD9 /* JMSliderTrack.m in Sources */,
 				886B465413C29D0100191AD9 /* JMSliderComponent.m in Sources */,
 				475467A113C31F0800904174 /* UIView+JMNoise.m in Sources */,
+				88ADC72413C40BD800C8263E /* DemoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
