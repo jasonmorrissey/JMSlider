@@ -32,6 +32,14 @@ The slider has a built-in activity indicator for convenience.  To turn the activ
 
 The Demo project included also demonstrates how this can be used in your code.
 
+## Embedding in Table/Scroll views
+
+If you embed the slider in a tableView (e.g. in a table view cell) or a scrollView, be sure to call `setCanCancelContentTouches:NO` on the scrolling view.  For example:
+
+`[tableView setCanCancelContentTouches:NO];`
+
+This will prevent the table/scrollView from scrolling vertically while the user is pressing down on the slider, which leads to a much better user experience.
+
 ## Customisation
 
 You can subclass any of the slider's internal components, and then implement any/all of the following methods in your delegate:
