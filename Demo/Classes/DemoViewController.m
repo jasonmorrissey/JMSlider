@@ -32,6 +32,12 @@
     self.view = tableView;
 }
 
+- (void) stopSimulatedLoading;
+{
+    [self.slider setLoading:NO];
+}
+
+
 #pragma Mark -
 #pragma Mark - JMSliderDelegate Methods
 
@@ -59,11 +65,5 @@
     
     [self performSelector:@selector(stopSimulatedLoading) withObject:nil afterDelay:2.];
 }
-
-- (void) stopSimulatedLoading;
-{
-    [self.slider setLoading:NO];
-}
-
 
 @end
