@@ -1,6 +1,6 @@
 ## JMSlider
 
-JMSlider is a sliding component that can be used to toggle three actions.  It's main purpose is to allow for multiple actions at the end of lists/tables while keeping visual clutter to a minimum.  The component is rendered entirely using **Core Graphics** so it does not require any additional images to be used in your projects.
+JMSlider is a sliding component that can be used to toggle three actions with a single button.  For example, it can be used to allow for multiple actions at the end of lists/tables while keeping visual clutter to a minimum.  The component is rendered entirely using **Core Graphics** so it does not require any additional images to be used in your projects.
 
 ## How it looks
 
