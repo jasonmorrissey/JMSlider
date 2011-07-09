@@ -16,6 +16,7 @@
 @property (nonatomic,assign) id<JMSliderDelegate> delegate;
 @property (assign) CGFloat currentSlideRatio;
 @property (assign) BOOL highlighted;
+@property (assign) BOOL suppressCallbacks;
 
 - (void)updateWithSlideRatio:(CGFloat)slideRatio;
 - (void)resetToCenter;
@@ -40,6 +41,7 @@
 @synthesize leftView = leftView_;
 @synthesize rightView = rightView_;
 @synthesize currentSlideRatio = currentSlideRatio_;
+@synthesize suppressCallbacks = suppressCallbacks_;
 @synthesize delegate = delegate_;
 
 - (void)dealloc;
@@ -97,6 +99,8 @@
     [self.centerView centerInSuperView];
     [self updateWithSlideRatio:0.];
     [UIView commitAnimations];
+    self.suppressCallbacks = NO;
+    [self setHighlightSlider:NO];
 }
 
 - (void)updateWithSlideRatio:(CGFloat)slideRatio;
@@ -164,27 +168,36 @@
     self.trackView.highlighted = highlighted;
     self.leftView.highlighted = highlighted;
     self.rightView.highlighted = highlighted;
+    
+    [self updateWithSlideRatio:self.currentSlideRatio];
 }
 
 - (void)releaseDragShouldCancel:(BOOL)cancelled;
 {        
-    if (self.slideRatio < (-1. + kJMSliderOptionActivationMargin))
+    if (!self.suppressCallbacks && self.slideRatio < (-1. + kJMSliderOptionActivationMargin))
     {
+        self.suppressCallbacks = YES;
         [self.delegate slider:self didSelect:JMSliderSelectionLeft];
+//        [self.delegate performSelector:@selector(slider:didSelect:) withObject:self withObject:JMSliderSelectionLeft];
         #if NS_BLOCKS_AVAILABLE
         if (leftExecuteBlock_) leftExecuteBlock_();
         #endif
+        [self performSelector:@selector(resetToCenter) withObject:nil afterDelay:0.8];
     }
-    else if (self.slideRatio > (1. - kJMSliderOptionActivationMargin))
+    else if (!self.suppressCallbacks && self.slideRatio > (1. - kJMSliderOptionActivationMargin))
     {
+        self.suppressCallbacks = YES;
         [self.delegate slider:self didSelect:JMSliderSelectionRight];
         #if NS_BLOCKS_AVAILABLE
         if (rightExecuteBlock_) rightExecuteBlock_();
         #endif
+        [self performSelector:@selector(resetToCenter) withObject:nil afterDelay:0.8];
     }
-    
+    else
+    {
+        [self resetToCenter];
+    }
     [self setHighlightSlider:NO];
-    [self resetToCenter];
 }
 
 - (void)tappedCenterView;

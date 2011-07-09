@@ -7,6 +7,13 @@
 
 @interface JMCenterView : JMSliderComponent
 
+- (id)initForSlider:(JMSlider *)slider withTitle:(NSString *)title;
+
 + (JMCenterView *)sliderButtonForSlider:(JMSlider *)slider withTitle:(NSString *)title;
+
+// Custom drawing
+- (void)drawButtonInRect:(CGRect)rect;
+- (CGSize)sizeOfButton;
+
 
 @end

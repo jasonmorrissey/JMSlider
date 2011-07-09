@@ -3,7 +3,7 @@
 #define kJMSideTitleFont [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.]
 #define kJMSideTitleColor [UIColor colorWithWhite:0.76 alpha:1.]
 
-#define kJMButtonPadding CGSizeMake(30., 8.)
+#define kJMButtonPadding CGSizeMake(34., 8.)
 #define kJMButtonFont [UIFont fontWithName:@"HelveticaNeue" size:14.]
 #define kJMSliderButtonInvisiblePadding CGSizeMake(30., 20.)
 #define kJMButtonColor [UIColor colorWithWhite:0.7 alpha:1.]
@@ -15,4 +15,4 @@
 #define kJMSliderAnimationHighlight @"kJMSliderAnimationHighlight"
 #define kJMSliderOptionActivationMargin 0.2
 #define kJMSliderMinimumMovementBuffer 0.2
-#define kJMSliderMinimumFadeOpacity 0.05
+#define kJMSliderMinimumFadeOpacity 0.2

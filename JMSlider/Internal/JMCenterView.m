@@ -105,19 +105,26 @@
 #pragma Mark - 
 #pragma Mark - Factories
 
+- (id)initForSlider:(JMSlider *)slider withTitle:(NSString *)title;
+{
+    self = [super initWithFrame:CGRectZero forSlider:slider];
+    if (self)
+    {
+        [self setExclusiveTouch:YES];
+        [self setTitle:title];
+        [self sizeToFit];
+        
+        UITapGestureRecognizer * tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)] autorelease];
+        tapGesture.numberOfTapsRequired = 1;
+        [self addGestureRecognizer:tapGesture];
+    }
+    return self;
+}
+
 + (JMCenterView *)sliderButtonForSlider:(JMSlider *)slider withTitle:(NSString *)title;
 {
-    JMCenterView * button = [[[JMCenterView alloc] initWithFrame:CGRectZero forSlider:slider] autorelease];
-    
-    [button setExclusiveTouch:YES];
-    [button setTitle:title];
-    [button sizeToFit];
-    
-    UITapGestureRecognizer * tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)] autorelease];
-    tapGesture.numberOfTapsRequired = 1;
-    [button addGestureRecognizer:tapGesture];
-    
-    return button;
+    JMCenterView * centerView = [[[JMCenterView alloc] initForSlider:slider withTitle:title] autorelease];
+    return centerView;
 }
 
 @end
