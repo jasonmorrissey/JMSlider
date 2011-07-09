@@ -8,11 +8,9 @@ This is what JMSlider looks like out of the box, (or a [video](http://youtu.be/G
 
 <img src="http://alienblue.org/github/JMSlider-sequence.png" width=349 height=900 />
 
-Here's a [video](http://youtu.be/GV40mAwcCrI?hd=1) of it in action.
-
 ## Usage
 
-A demo project is included in the repository so that you can give it a test drive.
+A demo project is included in the repository so that you can give it a test drive.  In brief, this is all you need to create the slider:
 
 `JMSlider *slider = [JMSlider sliderWithFrame:sliderFrame centerTitle:@"more" leftTitle:@"hide read" rightTitle:@"hide all" delegate:self];`
 
