@@ -177,7 +177,10 @@
     if (!self.suppressCallbacks && self.slideRatio < (-1. + kJMSliderOptionActivationMargin))
     {
         self.suppressCallbacks = YES;
-        [self.delegate slider:self didSelect:JMSliderSelectionLeft];
+        if ([self.delegate respondsToSelector:@selector(slider:didSelect:)])
+        {
+            [self.delegate slider:self didSelect:JMSliderSelectionLeft];
+        }
         #if NS_BLOCKS_AVAILABLE
         if (leftExecuteBlock_) leftExecuteBlock_();
         #endif
@@ -186,7 +189,10 @@
     else if (!self.suppressCallbacks && self.slideRatio > (1. - kJMSliderOptionActivationMargin))
     {
         self.suppressCallbacks = YES;
-        [self.delegate slider:self didSelect:JMSliderSelectionRight];
+        if ([self.delegate respondsToSelector:@selector(slider:didSelect:)])
+        {
+            [self.delegate slider:self didSelect:JMSliderSelectionRight];
+        }
         #if NS_BLOCKS_AVAILABLE
         if (rightExecuteBlock_) rightExecuteBlock_();
         #endif
@@ -203,7 +209,10 @@
 {
     if (fabs(self.slideRatio) < kJMSliderOptionActivationMargin)
     {
-        [self.delegate slider:self didSelect:JMSliderSelectionCenter];
+        if ([self.delegate respondsToSelector:@selector(slider:didSelect:)])
+        {
+            [self.delegate slider:self didSelect:JMSliderSelectionCenter];
+        }
         #if NS_BLOCKS_AVAILABLE
         if (centerExecuteBlock_) centerExecuteBlock_();
         #endif        

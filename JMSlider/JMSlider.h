@@ -22,8 +22,8 @@ typedef void(^JMSliderExecutionBlock)(void);
 #pragma Mark - JMSliderDelegate
 
 @protocol JMSliderDelegate <NSObject>
--(void)slider:(JMSlider *)slider didSelect:(JMSliderSelection)selection;
 @optional
+-(void)slider:(JMSlider *)slider didSelect:(JMSliderSelection)selection;
 -(JMCenterView *)sliderCenterViewForSlider:(JMSlider *)slider;
 -(JMSideView *)sliderLeftViewForSlider:(JMSlider *)slider;
 -(JMSideView *)sliderRightViewForSlider:(JMSlider *)slider;
