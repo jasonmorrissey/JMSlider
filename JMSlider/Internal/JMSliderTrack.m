@@ -31,7 +31,7 @@
         CGRect rightEdgeRect = CGRectMake(CGRectGetMaxX(trackRect) + kJMSliderTrackEdgeRadius, CGRectGetMidY(trackRect) - 0.5, 1., 1.);
         UIBezierPath * rightEdgePath = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(rightEdgeRect, -1. * kJMSliderTrackEdgeRadius, -1. * kJMSliderTrackEdgeRadius)];
         [rightEdgePath fill];
-    }    
+    }
 }
 
 + (JMSliderTrack *)sliderTrackForSlider:(JMSlider *)slider;

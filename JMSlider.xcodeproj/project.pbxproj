@@ -13,17 +13,17 @@
 		4719176D13A490FB00567E9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4719176C13A490FB00567E9E /* Foundation.framework */; };
 		4719176F13A4910000567E9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4719176E13A4910000567E9E /* QuartzCore.framework */; };
 		4719177113A4910600567E9E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4719177013A4910600567E9E /* CoreGraphics.framework */; };
-		475467A113C31F0800904174 /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 475467A013C31F0800904174 /* UIView+JMNoise.m */; };
 		4788298413C1CE5A007E0509 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 4788297D13C1CE5A007E0509 /* UIView+Positioning.m */; };
 		4788298513C1CE5A007E0509 /* UIView+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 4788297F13C1CE5A007E0509 /* UIView+Size.m */; };
 		4788298713C1CE5A007E0509 /* JMCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4788298313C1CE5A007E0509 /* JMCenterView.m */; };
 		4788298913C1CE83007E0509 /* JMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4788298813C1CE83007E0509 /* JMSlider.m */; };
 		47B98CF013C1E2FF0042592E /* JMSideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B98CEF13C1E2FF0042592E /* JMSideView.m */; };
-		47F343E013A4AF6F00EC49ED /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F343DC13A4AF6F00EC49ED /* DemoAppDelegate.m */; };
+		47EB6BE113C821E7004D0308 /* CenteredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EB6BDC13C821E7004D0308 /* CenteredTableViewController.m */; };
+		47EB6BE213C821E7004D0308 /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EB6BDE13C821E7004D0308 /* DemoAppDelegate.m */; };
+		47EB6BE313C821E7004D0308 /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EB6BE013C821E7004D0308 /* UIView+JMNoise.m */; };
 		47F343E113A4AF6F00EC49ED /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F343DE13A4AF6F00EC49ED /* DemoViewController.m */; };
 		886B464D13C2945500191AD9 /* JMSliderTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B464C13C2945500191AD9 /* JMSliderTrack.m */; };
 		886B465413C29D0100191AD9 /* JMSliderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B465313C29D0100191AD9 /* JMSliderComponent.m */; };
-		88ADC72413C40BD800C8263E /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ADC72313C40BD800C8263E /* DemoTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,6 @@
 		4719176C13A490FB00567E9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4719176E13A4910000567E9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4719177013A4910600567E9E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4754679F13C31F0800904174 /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
-		475467A013C31F0800904174 /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
 		4788297C13C1CE5A007E0509 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
 		4788297D13C1CE5A007E0509 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
 		4788297E13C1CE5A007E0509 /* UIView+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Size.h"; sourceTree = "<group>"; };
@@ -48,8 +46,12 @@
 		47B98CEE13C1E2FF0042592E /* JMSideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSideView.h; sourceTree = "<group>"; };
 		47B98CEF13C1E2FF0042592E /* JMSideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSideView.m; sourceTree = "<group>"; };
 		47E1AEEF13C1C7B200269D16 /* JMSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSlider.h; sourceTree = "<group>"; };
-		47F343DB13A4AF6F00EC49ED /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
-		47F343DC13A4AF6F00EC49ED /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		47EB6BDB13C821E7004D0308 /* CenteredTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenteredTableViewController.h; sourceTree = "<group>"; };
+		47EB6BDC13C821E7004D0308 /* CenteredTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenteredTableViewController.m; sourceTree = "<group>"; };
+		47EB6BDD13C821E7004D0308 /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
+		47EB6BDE13C821E7004D0308 /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		47EB6BDF13C821E7004D0308 /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
+		47EB6BE013C821E7004D0308 /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
 		47F343DD13A4AF6F00EC49ED /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		47F343DE13A4AF6F00EC49ED /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		886B464B13C2945500191AD9 /* JMSliderTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSliderTrack.h; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		886B464F13C2956F00191AD9 /* JMSliderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSliderConstants.h; sourceTree = "<group>"; };
 		886B465213C29D0000191AD9 /* JMSliderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSliderComponent.h; sourceTree = "<group>"; };
 		886B465313C29D0100191AD9 /* JMSliderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSliderComponent.m; sourceTree = "<group>"; };
-		88ADC72213C40BD800C8263E /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
-		88ADC72313C40BD800C8263E /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,17 +164,25 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		47EB6BDA13C821E7004D0308 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				47EB6BDB13C821E7004D0308 /* CenteredTableViewController.h */,
+				47EB6BDC13C821E7004D0308 /* CenteredTableViewController.m */,
+				47EB6BDD13C821E7004D0308 /* DemoAppDelegate.h */,
+				47EB6BDE13C821E7004D0308 /* DemoAppDelegate.m */,
+				47EB6BDF13C821E7004D0308 /* UIView+JMNoise.h */,
+				47EB6BE013C821E7004D0308 /* UIView+JMNoise.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		47F343DA13A4AF6F00EC49ED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4754679F13C31F0800904174 /* UIView+JMNoise.h */,
-				475467A013C31F0800904174 /* UIView+JMNoise.m */,
-				47F343DB13A4AF6F00EC49ED /* DemoAppDelegate.h */,
-				47F343DC13A4AF6F00EC49ED /* DemoAppDelegate.m */,
+				47EB6BDA13C821E7004D0308 /* Helpers */,
 				47F343DD13A4AF6F00EC49ED /* DemoViewController.h */,
 				47F343DE13A4AF6F00EC49ED /* DemoViewController.m */,
-				88ADC72213C40BD800C8263E /* DemoTableViewController.h */,
-				88ADC72313C40BD800C8263E /* DemoTableViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -248,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4719172A13A4875400567E9E /* main.m in Sources */,
-				47F343E013A4AF6F00EC49ED /* DemoAppDelegate.m in Sources */,
 				47F343E113A4AF6F00EC49ED /* DemoViewController.m in Sources */,
 				4788298413C1CE5A007E0509 /* UIView+Positioning.m in Sources */,
 				4788298513C1CE5A007E0509 /* UIView+Size.m in Sources */,
@@ -257,8 +264,9 @@
 				47B98CF013C1E2FF0042592E /* JMSideView.m in Sources */,
 				886B464D13C2945500191AD9 /* JMSliderTrack.m in Sources */,
 				886B465413C29D0100191AD9 /* JMSliderComponent.m in Sources */,
-				475467A113C31F0800904174 /* UIView+JMNoise.m in Sources */,
-				88ADC72413C40BD800C8263E /* DemoTableViewController.m in Sources */,
+				47EB6BE113C821E7004D0308 /* CenteredTableViewController.m in Sources */,
+				47EB6BE213C821E7004D0308 /* DemoAppDelegate.m in Sources */,
+				47EB6BE313C821E7004D0308 /* UIView+JMNoise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

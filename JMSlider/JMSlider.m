@@ -178,7 +178,6 @@
     {
         self.suppressCallbacks = YES;
         [self.delegate slider:self didSelect:JMSliderSelectionLeft];
-//        [self.delegate performSelector:@selector(slider:didSelect:) withObject:self withObject:JMSliderSelectionLeft];
         #if NS_BLOCKS_AVAILABLE
         if (leftExecuteBlock_) leftExecuteBlock_();
         #endif
@@ -209,6 +208,11 @@
         if (centerExecuteBlock_) centerExecuteBlock_();
         #endif        
     }
+}
+
+- (void)setLoading:(BOOL)loading;
+{
+    [self.centerView setLoading:loading];
 }
 
 #pragma Mark - 

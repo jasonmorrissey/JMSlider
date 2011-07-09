@@ -62,5 +62,7 @@ typedef void(^JMSliderExecutionBlock)(void);
 + (JMSlider *) sliderWithFrame:(CGRect)frame centerTitle:(NSString *)centerTitle leftTitle:(NSString *)leftTitle rightTitle:(NSString *)rightTitle delegate:(id<JMSliderDelegate>)delegate;
 + (JMSlider *) sliderWithFrame:(CGRect)frame delegate:(id<JMSliderDelegate>)delegate;
 
+- (void)setLoading:(BOOL)loading;
+
 @end
 

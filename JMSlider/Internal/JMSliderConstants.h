@@ -5,7 +5,7 @@
 
 #define kJMButtonPadding CGSizeMake(34., 8.)
 #define kJMButtonFont [UIFont fontWithName:@"HelveticaNeue" size:14.]
-#define kJMSliderButtonInvisiblePadding CGSizeMake(30., 20.)
+#define kJMSliderButtonInvisiblePadding CGSizeMake(40., 30.)
 #define kJMButtonColor [UIColor colorWithWhite:0.7 alpha:1.]
 #define kJMButtonOutlineColor [UIColor colorWithWhite:0. alpha:0.1]
 

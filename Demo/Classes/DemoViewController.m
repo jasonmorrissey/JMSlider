@@ -1,50 +1,54 @@
 //  Created by Jason Morrissey - jasonmorrissey.org
 
 #import "DemoViewController.h"
-#import "UIView+JMNoise.h"
-#import "UIView+Positioning.h"
+#import "CenteredTableViewController.h"
 
 @interface DemoViewController()
+@property (nonatomic,retain) JMSlider * slider;
 @end
 
 @implementation DemoViewController
 
--(void)loadView;
+@synthesize slider = slider_;
+
+- (void)dealloc;
 {
-    [super loadView];
-    self.view.backgroundColor = [UIColor whiteColor];
-   
-    [self.view applyNoise];
-    
-    CGRect sliderFrame = CGRectMake(0., 0., 320., 90.);
-    
-    JMSlider * slider = [JMSlider sliderWithFrame:sliderFrame centerTitle:@"more" leftTitle:@"hide read" rightTitle:@"hide all" delegate:self];
-    
-    slider.centerExecuteBlock = ^{ NSLog(@"executing block: center"); };
-    slider.leftExecuteBlock = ^{ NSLog(@"executing block: left"); };
-    slider.rightExecuteBlock = ^{ NSLog(@"executing block: right"); };
-
-    [self.view addSubview:slider];
-
-    [slider centerInSuperView];
+    self.slider = nil;
+    [super dealloc];
 }
 
+- (void)loadView;
+{
+    CGRect sliderFrame = CGRectMake(0., 0., 320., 90.);
+    self.slider = [JMSlider sliderWithFrame:sliderFrame centerTitle:@"more" leftTitle:@"hide read" rightTitle:@"hide all" delegate:self];
+    
+    UITableView * tableView = [CenteredTableViewController tableViewWithCenteredView:self.slider];
+    
+    // Important: When including the slider in tableViews or scrollViews, I highly recommend 
+    // that you set canCancelContentTouches to NO so that the table/scrollView doesn't scroll
+    // while the user is toggling the slider.
+    [tableView setCanCancelContentTouches:NO];
+
+    self.view = tableView;
+}
 
 #pragma Mark -
 #pragma Mark - JMSliderDelegate Methods
 
 -(void)slider:(JMSlider *)slider didSelect:(JMSliderSelection)selection;
 {
+    [slider setLoading:YES];
+    
     switch (selection) 
     {
         case JMSliderSelectionLeft:
             NSLog(@"invoked: left");
             break;
-
+            
         case JMSliderSelectionCenter:
             NSLog(@"invoked: center");
             break;
-
+            
         case JMSliderSelectionRight:
             NSLog(@"invoked: right");
             break;
@@ -52,6 +56,14 @@
         default:
             break;
     }
+    
+    [self performSelector:@selector(stopSimulatedLoading) withObject:nil afterDelay:2.];
 }
+
+- (void) stopSimulatedLoading;
+{
+    [self.slider setLoading:NO];
+}
+
 
 @end

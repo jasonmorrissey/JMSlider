@@ -1,4 +1,4 @@
-//  Created by Jason Morrissey - jasonmorrissey.org
+//  Created by Jason Morrissey
 
 #import <UIKit/UIKit.h>
 

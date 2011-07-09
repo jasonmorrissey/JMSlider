@@ -2,9 +2,11 @@
 
 #import "JMCenterView.h"
 #import "JMSlider.h"
+#import "UIView+Positioning.h"
 
 @interface JMCenterView()
 @property (assign) CGPoint touchStartPoint;
+@property (nonatomic,retain) UIActivityIndicatorView * activityView;
 - (CGPoint)touchPoint:(NSSet *)touches;
 - (void)drawButtonInRect:(CGRect)rect;
 - (CGSize)sizeOfButton;
@@ -13,9 +15,11 @@
 @implementation JMCenterView
 
 @synthesize touchStartPoint = touchStartPoint_;
+@synthesize activityView = activityView_;
 
 - (void)dealloc;
 {
+    self.activityView = nil;
     [super dealloc];
 }
 
@@ -50,9 +54,12 @@
         [outline stroke];
     }
     
-    CGFloat textOpacity = 1. - fabs([self.slider slideRatio]);
-    [[UIColor colorWithWhite:1. alpha:textOpacity] set];
-    [self.title drawInRect:CGRectOffset(rect, 0, kJMButtonPadding.height -1.) withFont:kJMButtonFont lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
+    if (!activityView_)
+    {
+        CGFloat textOpacity = 1. - fabs([self.slider slideRatio]);
+        [[UIColor colorWithWhite:1. alpha:textOpacity] set];
+        [self.title drawInRect:CGRectOffset(rect, 0, kJMButtonPadding.height -1.) withFont:kJMButtonFont lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
+    }
 }
 
 - (CGSize)sizeOfButton;
@@ -101,6 +108,26 @@
     [super touchesEnded:touches withEvent:event];
     [self.slider releaseDragShouldCancel:NO];
 }
+
+#pragma Mark - 
+#pragma Mark - Loading State
+
+- (void)setLoading:(BOOL)loading;
+{
+    [self.activityView removeFromSuperview];
+    self.activityView = nil;
+
+    if (loading)
+    {
+        self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+        self.activityView.autoresizesSubviews = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+        [self.activityView startAnimating];
+        [self addSubview:self.activityView];
+        [self.activityView centerInSuperView];
+    }
+    [self setNeedsDisplay];
+}
+
          
 #pragma Mark - 
 #pragma Mark - Factories

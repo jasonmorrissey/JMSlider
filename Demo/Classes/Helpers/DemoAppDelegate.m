@@ -1,7 +1,7 @@
 //  Created by Jason Morrissey - jasonmorrissey.org
 
 #import "DemoAppDelegate.h"
-#import "DemoTableViewController.h"
+#import "DemoViewController.h"
 
 @implementation DemoAppDelegate
 
@@ -13,11 +13,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-	DemoTableViewController * demoViewController = [[[DemoTableViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+	DemoViewController * demoViewController = [[[DemoViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:demoViewController] autorelease];
     [self.navigationController setNavigationBarHidden:YES];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     [self.window addSubview:self.navigationController.view];
     [self.window makeKeyAndVisible];
     

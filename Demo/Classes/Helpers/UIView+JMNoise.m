@@ -1,15 +1,15 @@
-//  Created by Jason Morrissey - jasonmorrissey.org
+//  Created by Jason Morrissey
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIView+JMNoise.h"
 #include <stdlib.h>
 
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define kNoiseTileDimension 50
+#define kNoiseIntensity 250
+#define kNoiseDefaultOpacity 0.4
+#define kNoisePixelWidth 0.3
 
-#define kNoiseTileDimension 100
-#define kNoiseIntensity 100
-#define kNoiseDefaultOpacity 0.3
-#define kNoisePixelWidth 0.25
+#define JM_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #pragma Mark -
 #pragma Mark - Noise Layer
@@ -41,6 +41,7 @@ static UIImage * JMNoiseImage;
 {
     if (!JMNoiseImage)
     {
+        #ifndef __clang_analyzer__
         CGFloat imageScale;
         
         if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
@@ -59,7 +60,7 @@ static UIImage * JMNoiseImage;
                                                      colorSpace,kCGImageAlphaPremultipliedLast);
         CFRelease(colorSpace);
 
-        for (int i=0; i<(imageDimension * kNoiseIntensity); i++)
+        for (int i=0; i<(kNoiseTileDimension * kNoiseIntensity); i++)
         {
             int x = arc4random() % (imageDimension + 1);
             int y = arc4random() % (imageDimension + 1);
@@ -70,7 +71,7 @@ static UIImage * JMNoiseImage;
 
         CGImageRef imageRef = CGBitmapContextCreateImage(context);
         CGContextRelease(context);
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0"))
+        if (JM_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0"))
         {
             JMNoiseImage = [[UIImage alloc] initWithCGImage:imageRef scale:imageScale orientation:UIImageOrientationUp];
         }
@@ -78,6 +79,7 @@ static UIImage * JMNoiseImage;
         {
             JMNoiseImage = [[UIImage alloc] initWithCGImage:imageRef];
         }
+        #endif
     }
     return JMNoiseImage;
 }
