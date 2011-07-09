@@ -4,7 +4,7 @@ JMSlider is a sliding component that can be used to toggle three actions.  It's 
 
 ## How it looks
 
-This is what JMSlider looks like out of the box:
+This is what JMSlider looks like out of the box, (or a [video](http://youtu.be/GV40mAwcCrI?hd=1) if you prefer):
 
 <img src="http://alienblue.org/github/JMSlider-sequence.png" width=349 height=900 />
 
