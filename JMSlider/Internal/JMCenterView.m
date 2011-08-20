@@ -6,7 +6,6 @@
 
 @interface JMCenterView()
 @property (assign) CGPoint touchStartPoint;
-@property (nonatomic,retain) UIActivityIndicatorView * activityView;
 - (CGPoint)touchPoint:(NSSet *)touches;
 - (void)drawButtonInRect:(CGRect)rect;
 - (CGSize)sizeOfButton;

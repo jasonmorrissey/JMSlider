@@ -170,6 +170,10 @@
     self.rightView.highlighted = highlighted;
     
     [self updateWithSlideRatio:self.currentSlideRatio];
+    if ([self.delegate respondsToSelector:@selector(slider:didHighlight:)])
+    {
+        [self.delegate slider:self didHighlight:highlighted];
+    }
 }
 
 - (void)releaseDragShouldCancel:(BOOL)cancelled;

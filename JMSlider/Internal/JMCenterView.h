@@ -7,6 +7,8 @@
 
 @interface JMCenterView : JMSliderComponent
 
+@property (nonatomic,retain) UIActivityIndicatorView * activityView;
+
 - (id)initForSlider:(JMSlider *)slider withTitle:(NSString *)title;
 + (JMCenterView *)sliderButtonForSlider:(JMSlider *)slider withTitle:(NSString *)title;
 
