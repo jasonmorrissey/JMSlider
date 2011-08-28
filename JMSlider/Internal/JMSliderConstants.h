@@ -15,4 +15,4 @@
 #define kJMSliderAnimationHighlight @"kJMSliderAnimationHighlight"
 #define kJMSliderOptionActivationMargin 0.2
 #define kJMSliderMinimumMovementBuffer 0.2
-#define kJMSliderMinimumFadeOpacity 0.2
+#define kJMSliderMinimumFadeOpacity 0.6
