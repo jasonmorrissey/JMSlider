@@ -112,11 +112,11 @@
     
     if (slideRatio > kJMSliderMinimumMovementBuffer)
     {
-        self.rightView.alpha = slideRatio;
+        self.rightView.alpha = slideRatio + kJMSliderMinimumFadeOpacity;
     }
     else if (slideRatio < (-1. * kJMSliderMinimumMovementBuffer))
     {
-        self.leftView.alpha = (slideRatio * -1.);
+        self.leftView.alpha = (slideRatio * -1.) + kJMSliderMinimumFadeOpacity;
     }
 }
 
