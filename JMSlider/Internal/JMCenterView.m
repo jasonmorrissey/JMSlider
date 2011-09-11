@@ -106,6 +106,10 @@
 {
     [super touchesEnded:touches withEvent:event];
     [self.slider releaseDragShouldCancel:NO];
+    if (SYSTEM_VERSION_LESS_THAN(@"4.0"))
+    {
+        [self.slider performSelector:@selector(tappedCenterView)];
+    }
 }
 
 #pragma Mark - 
@@ -140,9 +144,12 @@
         [self setTitle:title];
         [self sizeToFit];
         
-        UITapGestureRecognizer * tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)] autorelease];
-        tapGesture.numberOfTapsRequired = 1;
-        [self addGestureRecognizer:tapGesture];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0"))
+        {
+            UITapGestureRecognizer * tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)] autorelease];
+            tapGesture.numberOfTapsRequired = 1;
+            [self addGestureRecognizer:tapGesture];
+        }
     }
     return self;
 }
