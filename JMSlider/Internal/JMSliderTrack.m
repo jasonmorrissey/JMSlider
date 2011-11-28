@@ -5,10 +5,6 @@
 
 @implementation JMSliderTrack
 
-- (void)dealloc;
-{
-    [super dealloc];
-}
 
 - (void)drawRect:(CGRect)rect;
 {
@@ -36,7 +32,7 @@
 
 + (JMSliderTrack *)sliderTrackForSlider:(JMSlider *)slider;
 {
-    JMSliderTrack * sliderTrack = [[[[self class] alloc] initWithFrame:slider.bounds forSlider:slider] autorelease];
+    JMSliderTrack * sliderTrack = [[[self class] alloc] initWithFrame:slider.bounds forSlider:slider];
     sliderTrack.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     return sliderTrack;
 }

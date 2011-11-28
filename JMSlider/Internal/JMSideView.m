@@ -36,7 +36,7 @@
 
 + (JMSideView *)sideViewWithTitle:(NSString *)title;
 {
-    JMSideView * sideView = [[[[self class] alloc] init] autorelease];
+    JMSideView * sideView = [[[self class] alloc] init];
     sideView.title = title;
     [sideView sizeToFit];
     return sideView;

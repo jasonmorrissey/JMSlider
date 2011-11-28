@@ -16,11 +16,6 @@
 @synthesize touchStartPoint = touchStartPoint_;
 @synthesize activityView = activityView_;
 
-- (void)dealloc;
-{
-    self.activityView = nil;
-    [super dealloc];
-}
 
 #pragma Mark -
 #pragma Mark - Wrappers for button (including padding)
@@ -122,7 +117,7 @@
 
     if (loading)
     {
-        self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+        self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         self.activityView.autoresizesSubviews = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
         [self.activityView startAnimating];
         [self addSubview:self.activityView];
@@ -146,7 +141,7 @@
         
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0"))
         {
-            UITapGestureRecognizer * tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)] autorelease];
+            UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:slider action:@selector(tappedCenterView)];
             tapGesture.numberOfTapsRequired = 1;
             [self addGestureRecognizer:tapGesture];
         }
@@ -156,7 +151,7 @@
 
 + (JMCenterView *)sliderButtonForSlider:(JMSlider *)slider withTitle:(NSString *)title;
 {
-    JMCenterView * centerView = [[[JMCenterView alloc] initForSlider:slider withTitle:title] autorelease];
+    JMCenterView * centerView = [[JMCenterView alloc] initForSlider:slider withTitle:title];
     return centerView;
 }
 

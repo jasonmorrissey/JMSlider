@@ -12,8 +12,6 @@
 - (void)dealloc
 {
     self.slider = nil;
-    self.title = nil;
-    [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame forSlider:(JMSlider *)slider;

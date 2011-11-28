@@ -9,11 +9,11 @@
 
 @interface JMSlider()
 
-@property (nonatomic,retain) JMCenterView * centerView;
-@property (nonatomic,retain) JMSliderTrack * trackView;
-@property (nonatomic,retain) JMSideView * leftView;
-@property (nonatomic,retain) JMSideView * rightView;
-@property (nonatomic,assign) id<JMSliderDelegate> delegate;
+@property (nonatomic,strong) JMCenterView * centerView;
+@property (nonatomic,strong) JMSliderTrack * trackView;
+@property (nonatomic,strong) JMSideView * leftView;
+@property (nonatomic,strong) JMSideView * rightView;
+@property (nonatomic,unsafe_unretained) id<JMSliderDelegate> delegate;
 @property (assign) CGFloat currentSlideRatio;
 @property (assign) BOOL highlighted;
 @property (assign) BOOL suppressCallbacks;
@@ -47,17 +47,9 @@
 - (void)dealloc;
 {
     #if NS_BLOCKS_AVAILABLE
-    self.leftExecuteBlock = nil;
-    self.centerExecuteBlock = nil;
-    self.rightExecuteBlock = nil;
     #endif
 
     self.delegate = nil;
-    self.trackView = nil;
-    self.centerView = nil;
-    self.leftView = nil;
-    self.rightView = nil;
-    [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame centerTitle:(NSString *)centerTitle leftTitle:(NSString *)leftTitle rightTitle:(NSString *)rightTitle delegate:(id<JMSliderDelegate>)delegate;
@@ -94,7 +86,7 @@
 
 - (void)resetToCenter;
 {
-    [UIView beginAnimations:kJMSliderAnimationCenterButton context:self.centerView];
+    [UIView beginAnimations:kJMSliderAnimationCenterButton context:(__bridge void *)(self.centerView)];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [self.centerView centerInSuperView];
     [self updateWithSlideRatio:0.];
@@ -268,7 +260,7 @@
 
 + (JMSlider *) sliderWithFrame:(CGRect)frame centerTitle:(NSString *)centerTitle leftTitle:(NSString *)leftTitle rightTitle:(NSString *)rightTitle delegate:(id<JMSliderDelegate>)delegate;
 {
-    JMSlider * slider = [[[JMSlider alloc] initWithFrame:frame centerTitle:centerTitle leftTitle:leftTitle rightTitle:rightTitle delegate:delegate] autorelease];
+    JMSlider * slider = [[JMSlider alloc] initWithFrame:frame centerTitle:centerTitle leftTitle:leftTitle rightTitle:rightTitle delegate:delegate];
     return slider;
 }
 

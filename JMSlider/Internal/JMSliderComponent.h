@@ -1,14 +1,13 @@
 //  Created by Jason Morrissey - jasonmorrissey.org
 
 #import <UIKit/UIKit.h>
-
-@class JMSlider;
+#import "JMSlider.h"
 
 @interface JMSliderComponent : UIView 
 
-@property (nonatomic, assign) JMSlider * slider;
+@property (nonatomic, weak) JMSlider * slider;
 @property (nonatomic, assign) BOOL highlighted;
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, strong) NSString * title;
 
 - (id)initWithFrame:(CGRect)frame forSlider:(JMSlider *)slider;
 
