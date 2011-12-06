@@ -5,7 +5,7 @@
 
 @interface JMSliderComponent : UIView 
 
-@property (nonatomic, weak) JMSlider * slider;
+@property (nonatomic, ab_weak) JMSlider * slider;
 @property (nonatomic, assign) BOOL highlighted;
 @property (nonatomic, strong) NSString * title;
 
