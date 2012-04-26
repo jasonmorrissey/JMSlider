@@ -13,7 +13,7 @@
 @property (nonatomic,strong) JMSliderTrack * trackView;
 @property (nonatomic,strong) JMSideView * leftView;
 @property (nonatomic,strong) JMSideView * rightView;
-@property (nonatomic,unsafe_unretained) id<JMSliderDelegate> delegate;
+@property (nonatomic,jmfn_weak) id<JMSliderDelegate> delegate;
 @property (assign) CGFloat currentSlideRatio;
 @property (assign) BOOL highlighted;
 @property (assign) BOOL suppressCallbacks;
