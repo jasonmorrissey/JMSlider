@@ -28,7 +28,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Positioning)
+@interface UIView (JMFNPositioning)
 
 - (void)centerInRect:(CGRect)rect;
 - (void)centerVerticallyInRect:(CGRect)rect;

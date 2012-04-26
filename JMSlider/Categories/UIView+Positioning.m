@@ -29,7 +29,7 @@
 #import "UIView+Positioning.h"
 #import "UIView+Size.h"
 
-@implementation UIView (Positioning)
+@implementation UIView (JMFNPositioning)
 
 - (void)centerInRect:(CGRect)rect;
 {
