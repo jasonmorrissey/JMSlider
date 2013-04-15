@@ -2,7 +2,6 @@
 
 #import "JMCenterView.h"
 #import "JMSlider.h"
-#import "UIView+Positioning.h"
 
 @interface JMCenterView()
 @property (assign) CGPoint touchStartPoint;

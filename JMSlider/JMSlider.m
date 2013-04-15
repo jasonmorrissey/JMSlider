@@ -4,8 +4,6 @@
 #import "JMCenterView.h"
 #import "JMSliderTrack.h"
 #import "JMSideView.h"
-#import "UIView+Positioning.h"
-#import "UIView+Size.h"
 
 @interface JMSlider()
 
