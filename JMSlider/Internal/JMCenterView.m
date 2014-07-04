@@ -21,7 +21,7 @@
 
 - (void)drawRect:(CGRect)rect;
 {
-    CGRect buttonRect = CGRectInset(rect, kJMSliderButtonInvisiblePadding.width, kJMSliderButtonInvisiblePadding.height);
+    CGRect buttonRect = CGRectInset(self.bounds, kJMSliderButtonInvisiblePadding.width, kJMSliderButtonInvisiblePadding.height);
     [self drawButtonInRect:buttonRect];
 }
 
