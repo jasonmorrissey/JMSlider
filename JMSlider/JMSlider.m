@@ -96,7 +96,10 @@
 - (void)updateWithSlideRatio:(CGFloat)slideRatio;
 {
     self.currentSlideRatio = slideRatio;
-    
+  
+    if (self.shouldDisallowSliding)
+      return;
+  
     self.rightView.alpha = self.highlighted ? kJMSliderMinimumFadeOpacity : 0.;
     self.leftView.alpha = self.highlighted ? kJMSliderMinimumFadeOpacity : 0.;
     
@@ -112,6 +115,9 @@
 
 - (void)setButtonCenterPosition:(CGPoint)centerPoint animated:(BOOL)animated;
 {
+    if (self.shouldDisallowSliding)
+      return;
+  
     CGFloat trackHighCenter = [self trackHighCenter];
     CGFloat trackLowCenter = [self trackLowCenter];
     if (centerPoint.x > trackHighCenter) return;
